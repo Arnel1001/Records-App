@@ -38,12 +38,12 @@
         // Get form data
         $lastname = mysqli_real_escape_string($conn, $_POST['lastname']);
         $firstname = mysqli_real_escape_string($conn, $_POST['firstname']);
-        $office_id = mysqli_real_escape_string($conn, $_POST['office_id']);
+        $office_id = mysqli_real_escape_string($conn, $_POST['office']);
         $address = mysqli_real_escape_string($conn, $_POST['address']);
        
         // Create insert query
-        $query ="INSERT INTO office(lastname, firstname, office_id, address)
-            VALUES('$lastname', '$firstname', '$office_id', '$address')";
+        $query ="INSERT INTO employee(lastname, firstname, office_id, address)
+            VALUES('$lastname', '$firstname', $office_id, '$address')";
         
         // Execute Query
         if (mysqli_query($conn, $query)){
@@ -81,7 +81,7 @@
                                                 </div>
                                             </div> 
                                             
-                                        </div>
+                                        
                                         <div class="col-md-4 pl-1">
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Office</label>
@@ -97,6 +97,15 @@
                                                     ?> 
                                                 </select> 
                                             </div> 
+                                        </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label>Address / Building</label>
+                                                    <input name="address" type="text" class="form-control">
+                                                </div>
+                                            </div>
                                         </div>
                                         <button type="submit" name="submit" value="Submit" class="btn btn-info btn-fill pull-right">Save</button>
                                         <div class="clearfix"></div>

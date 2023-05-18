@@ -24,7 +24,7 @@
     require('config/db.php');
 
     // Create Query
-    $query = 'SELECT employee.lastname, employee.firstname, employee.address, office.name as office_name FROM employee, office WHERE employee.office_id = office.id';
+    $query = 'SELECT employee.lastname, employee.firstname, employee.address, office.name as office_name FROM employee, office WHERE employee.office_id = office.id ORDER BY employee.lastname';
     
     // Get the result
     $result = mysqli_query($conn, $query);
