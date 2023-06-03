@@ -21,7 +21,6 @@
 <body>
     <div class="wrapper">
         <div class="sidebar" data-image="../assets/img/sidebar-5.jpg">
-
             <div class="sidebar-wrapper">
                 <?php include('includes/sidebar.php'); ?>
             </div>
@@ -31,7 +30,7 @@
             <?php
             require('config/config.php');
             require('config/db.php');
-
+            
             // Check if submitted
             if (isset($_POST['submit'])) {
                 // Get form data
@@ -63,7 +62,7 @@
                                     <h4 class="card-title">Transactions</h4>
                                 </div>
                                 <div class="card-body">
-                                    <form method="POST" action="<?php $_SERVER['PHP_SELF']; ?>">
+                                    <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                                         <div class="row">
                                             <div class="col-md-3 pr-1">
                                                 <div class="form-group">
@@ -96,7 +95,7 @@
                                                     <select class="form-control" name="employee_id">
                                                         <option>Select...</option>
                                                         <?php
-                                                        $query = "SELECT id, CONCAT(lastname,', ',firstname) as Employee FROM your_employee_table;";
+                                                        $query = "SELECT id, CONCAT(lastname,', ',firstname) as Employee FROM employee;";
                                                         $result = mysqli_query($conn, $query);
                                                         while ($row = mysqli_fetch_array($result)) {
                                                             echo "<option value=" . $row['id'] . ">" . $row['Employee'] . "</option>";
@@ -111,7 +110,7 @@
                                                     <select class="form-control" name="office_id">
                                                         <option>Select...</option>
                                                         <?php
-                                                        $query = "SELECT id, name FROM recordapp_db.office;";
+                                                        $query = "SELECT id, name FROM office;";
                                                         $result = mysqli_query($conn, $query);
                                                         while ($row = mysqli_fetch_array($result)) {
                                                             echo "<option value=" . $row['id'] . ">" . $row['name'] . "</option>";
